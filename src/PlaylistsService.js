@@ -1,12 +1,12 @@
 const {
-    Pool
-} = require("pg");
-const NotFoundError = require("./exceptions/NotFoundError");
-const InvariantError = require("./exceptions/InvariantError");
+    Pool,
+} = require('pg');
+const NotFoundError = require('./exceptions/NotFoundError');
+const InvariantError = require('./exceptions/InvariantError');
 
 class PlaylistsService {
     constructor() {
-        this._pool = new Pool;
+        this._pool = new Pool();
     }
 
     async getPlaylistById(playlistId) {
@@ -40,8 +40,8 @@ class PlaylistsService {
             plalists: {
                 ...playlists,
                 songs: resultSongs.rows,
-            }
-        }
+            },
+        };
     }
 }
 

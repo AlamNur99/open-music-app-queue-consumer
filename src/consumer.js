@@ -7,8 +7,8 @@ const Listener = require('./listener');
 const config = require('./utils/config');
 
 const init = async () => {
-    const playlistsService = new PlaylistsService;
-    const mailSender = new MailSender;
+    const playlistsService = new PlaylistsService();
+    const mailSender = new MailSender();
     const listener = new Listener(playlistsService, mailSender);
 
     const connection = await amqp.connect(config.rabbitmq.server);
@@ -19,7 +19,7 @@ const init = async () => {
     });
 
     channel.consume('export:playlists', listener.listen, {
-        noAck: true
+        noAck: true,
     });
 };
 

@@ -22,7 +22,7 @@ class MailSender {
             attachments: {
                 filename: 'playlists.json',
                 content,
-            }
+            },
         };
 
         return this._transporter.sendMail(message);
